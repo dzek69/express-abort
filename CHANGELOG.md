@@ -5,6 +5,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [UNRELEASED]
 
+## [1.0.2] - 2018-12-08
+### Fixed
+- not working at all, forgot to call `next`
+
 ## [1.0.1] - 2018-12-08
 ### Fixed
 - missing `main` entry in package.json

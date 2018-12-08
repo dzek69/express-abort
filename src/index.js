@@ -7,7 +7,7 @@ const ConnectionAbortedError = createError("ConnectionAbortedError");
 
 const NAME = "__$isEnded$"; // @todo consider making non-enumerable?
 
-const middleware = (req) => {
+const middleware = (req, res, next) => {
     if (!(NAME in req.connection)) {
         req.connection[NAME] = false;
         req.connection.once("end", () => {
@@ -20,6 +20,8 @@ const middleware = (req) => {
             throw new ConnectionAbortedError("Connection already ended.");
         }
     };
+
+    next();
 };
 
 const createMiddleware = () => middleware;

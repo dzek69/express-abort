@@ -1,6 +1,6 @@
 {
   "name": "express-abort",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "repository": "https://github.com/dzek69/express-abort.git",
   "author": "Jacek Nowacki @dzek69 <git-public@dzek.eu>",
   "license": "MIT",
