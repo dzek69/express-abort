@@ -1,9 +1,10 @@
 {
   "name": "express-abort",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": "https://github.com/dzek69/express-abort.git",
   "author": "Jacek Nowacki @dzek69 <git-public@dzek.eu>",
   "license": "MIT",
+  "main": "src/index.js",
   "scripts": {
     "test": "cross-env NODE_ENV=testing mocha 'src/**/*.spec.js'",
     "docs": "node build-scripts/docs && jsdoc src README.md -t node_modules/docdash -d ./docs -u ./tutorials && node build-scripts/docs.after",
