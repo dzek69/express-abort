@@ -1,19 +1,23 @@
-"use strict";
 /* eslint-disable no-param-reassign */
 
-const { default: createError } = require("better-custom-error/dist");
+import createError from "better-custom-error";
 
 const ConnectionAbortedError = createError("ConnectionAbortedError");
 
 const NAME = "__$isEnded$"; // @todo consider making non-enumerable?
 
 const middleware = (req, res, next) => {
-    if (!(NAME in req.connection)) {
-        req.connection[NAME] = false;
-        req.connection.once("end", () => {
-            req.connection[NAME] = true;
-        });
+    if (NAME in req.connection) {
+        return next();
     }
+
+    Object.defineProperty(req.connection, NAME, {
+        writable: true,
+        enumerable: false,
+    });
+    req.connection.once("end", () => {
+        req.connection[NAME] = true;
+    });
 
     req.checkConnection = () => {
         if (req.connection[NAME]) {
@@ -21,12 +25,13 @@ const middleware = (req, res, next) => {
         }
     };
 
-    next();
+    return next();
 };
 
 const createMiddleware = () => middleware;
 
-module.exports = {
-    default: createMiddleware,
-    ConnectionAbortedError: ConnectionAbortedError,
+export default createMiddleware;
+
+export {
+    ConnectionAbortedError,
 };

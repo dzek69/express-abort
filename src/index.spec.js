@@ -1,6 +1,4 @@
-"use strict";
-
-const { default: createMiddleware, ConnectionAbortedError } = require("./index");
+import createMiddleware, { ConnectionAbortedError } from "./index";
 
 describe("express-abort middleware", () => {
     it("creates middleware", () => {

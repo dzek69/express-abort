@@ -6,8 +6,8 @@ More info on blog post (@TODO).
 ## Usage
 
 1. Install as any other npm library
-2. Import `express-abort` for ES6 code, `express-abort/dist` for ES5 code. Remember about `default` export when using
-commonjs.
+2. Import `express-abort` for es modules code, `express-abort/dist` for common js node 8+ code. Remember about `default`
+export when using common js version.
 3. Code example:
 ```javascript
 import express from "express";
