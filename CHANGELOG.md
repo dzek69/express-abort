@@ -5,6 +5,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [UNRELEASED]
 
+## [3.0.0] - 2021-03-05
+### Added
+- TypeScript support (WIP)
+### Changed
+- default export replaced with `createMiddleware` named export
+### Fixed
+- CommonJS support
+
 ## [2.0.0] - 2019-09-01
 ### Fixed
 - audit warnings
